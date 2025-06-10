@@ -8,6 +8,7 @@ import numpy as np
 import cv2
 import tqdm as tqdm
 from models import build_stixel_net
+from data_loader import KittiStixelDataset
 from albumentations import (
     Compose,
     Resize,
@@ -16,7 +17,7 @@ from albumentations import (
 import tensorflow.keras.backend as K
 
 # 固定模型路径
-MODEL_PATH = "D:\Road Obstacle Detection\saved_models\model.h5"
+MODEL_PATH = "D:\Road Obstacle Detection\saved_models\model-033.h5"
 
 def test_single_image(model, img, label_size=(100, 50)):
     assert img is not None
@@ -60,9 +61,7 @@ def main():
     dt_config = Config()
     model = build_stixel_net()
     load_weights_without_decode(MODEL_PATH, model)
-    #model.load_weights(MODEL_PATH)
 
-    # 自己拍摄图片的文件夹路径
     image_folder = "D:\Road Obstacle Detection\picture-for-test"
     image_files = [f for f in os.listdir(image_folder) if f.endswith(('.png', '.jpg', '.jpeg'))]
 

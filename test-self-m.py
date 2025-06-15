@@ -19,7 +19,7 @@ import tensorflow.keras.backend as K
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 # 固定模型路径
-MODEL_PATH = "D:/Road Obstacle Detection/saved_models/model-033.h5"
+MODEL_PATH = "D:/Road-Obstacle-Detection/saved_models/model-033.h5"
 
 
 def test_single_image(model, img, label_size=(100, 50)):
@@ -97,7 +97,7 @@ def main():
             print(f"加载模型权重失败: {str(e2)}")
             return
 
-    image_folder = "D:\Road Obstacle Detection\picture-for-test"
+    image_folder = "D:\Road-Obstacle-Detection\picture-for-test"
     image_files = [f for f in os.listdir(image_folder) if f.endswith(('.png', '.jpg', '.jpeg'))]
     print(f"找到 {len(image_files)} 张图片")
 

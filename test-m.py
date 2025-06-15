@@ -17,7 +17,7 @@ from albumentations import (
 import tensorflow.keras.backend as K
 
 # 固定模型路径
-MODEL_PATH = "D:\Road Obstacle Detection\saved_models\model.h5"
+MODEL_PATH = "D:\Road-Obstacle-Detection\saved_models\model.h5"
 
 def test_single_image(model, img, label_size=(100, 50)):
     assert img is not None
@@ -62,7 +62,7 @@ def main():
     model = build_stixel_net()
     load_weights_without_decode(MODEL_PATH, model)
 
-    image_folder = "D:\Road Obstacle Detection\picture-for-test"
+    image_folder = "D:\Road-Obstacle-Detection\picture-for-test"
     image_files = [f for f in os.listdir(image_folder) if f.endswith(('.png', '.jpg', '.jpeg'))]
 
     for i, image_file in tqdm.tqdm(enumerate(image_files)):
